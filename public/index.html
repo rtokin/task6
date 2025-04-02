@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Система авторизации</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      color: #333333;
+      transition: all 0.3s ease;
+    }
+    
+    body.dark-theme {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    #error-message {
+      color: #d32f2f;
+      background-color: #fde8e8;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    .dark-theme #error-message {
+      color: #ff8a80;
+      background-color: #5c2b29;
+    }
+    
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #ffffff;
+      color: #333333;
+    }
+    
+    .dark-theme input {
+      background-color: #333333;
+      color: #f0f0f0;
+      border-color: #555555;
+    }
+    
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #3367d6;
+    }
+    
+    .dark-theme button {
+      background-color: #5c6bc0;
+    }
+    
+    .dark-theme button:hover {
+      background-color: #3949ab;
+    }
+    
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    #app-content {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+    
+    .dark-theme #app-content {
+      background-color: #2d2d2d;
+    }
+    
+    #theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: transparent;
+      border: 1px solid #4285f4;
+      color: #4285f4;
+    }
+    
+    .dark-theme #theme-toggle {
+      border-color: #5c6bc0;
+      color: #5c6bc0;
+    }
+  </style>
+</head>
+<body>
+  <button id="theme-toggle">Темная тема</button>
+  
+  <div id="auth-section">
+    <h2>Вход в систему</h2>
+    <input type="text" id="username" placeholder="Логин" required>
+    <input type="password" id="password" placeholder="Пароль" required>
+    <button id="login-btn">Войти</button>
+    <div id="error-message" class="hidden"></div>
+  </div>
+  
+  <div id="app-content" class="hidden">
+    <h2>Добро пожаловать, <span id="user-name"></span>!</h2>
+    <p>Последний вход: <span id="last-login"></span></p>
+    <button id="refresh-btn">Обновить данные</button>
+    <button id="logout-btn">Выйти</button>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
