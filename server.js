@@ -58,7 +58,7 @@ app.post('/login', (req, res) => {
     }
 
     // Простая проверка (в реальном приложении - проверка в БД)
-    if (username === 'admin' && password === '12345') {
+    if (username === 'admin' && password === 'admin') {
       req.session.user = { 
         username,
         lastLogin: new Date().toISOString(),
@@ -196,6 +196,6 @@ app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);
   console.log('Тестовые данные для входа:');
   console.log('Логин: admin');
-  console.log('Пароль: 12345');
+  console.log('Пароль: admin');
   console.log(`Текущее время: ${new Date().toISOString()}`);
 });
